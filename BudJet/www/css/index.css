@@ -1,0 +1,237 @@
+/* General styling */
+
+:root {
+    --font-stack-title: 'Nevis', sans-serif;
+    --font-stack-main: 'HkGrotesk', sans-serif;
+    --color-night: #212A47;
+    --gradient-flashy: linear-gradient(135deg, #fe75af 0%,#c93efa 33%,#9636db 64%,#7b78fc 100%);
+    --color-body: #fff;
+    --color-body-light: #d4daf1;
+    --color-body-lighter: #6d7fb9;
+    --color-blue-light: #3d4b7a;
+    --index-border: 3px;
+}
+
+@font-face {
+    font-family: Nevis;
+    src: url('../fonts/nevis.ttf');
+}
+
+@font-face {
+    font-family: HkGrotesk;
+    src: url('../fonts/hk_grotesk.otf');
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body, html {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-stack-main);
+    color: var(--color-body);
+    font-size: 14px;
+    overflow: hidden;
+    background: var(--gradient-flashy);
+}
+
+.page-wrapper {
+    background-color: var(--color-night);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+}
+
+.page-wrapper:not(.index) {
+    position: absolute;
+    top: 100vh;
+}
+
+/* index.html */
+
+.page-wrapper.index {
+    height: calc(100vh - 2 * var(--index-border));
+    width: calc(100vw - 2 * var(--index-border));
+    margin: var(--index-border);
+}
+
+.section--numbers {
+    padding: 20px 10px;
+}
+
+.section--operations {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 12px 10px;
+    box-shadow: inset 0px 10px 15px -10px #0d111d, inset 0px -10px 15px -10px #0d111d;
+}
+
+.numbers--title {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 3px 0;
+    color: var(--color-body-light);
+}
+
+.numbers--big-number {
+    font-family: var(--font-stack-title);
+    line-height: 0.8; /* HACK: the height of this font is buggy af */
+    font-size: 2.8rem;
+    display: block;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+}
+
+.numbers--medium-number {
+    font-family: var(--font-stack-title);
+    line-height: 0.8; /* HACK: the height of this font is buggy af */
+    font-size: 1.6rem;
+    display: block;
+    text-align: center;
+}
+
+.numbers--container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 12px;
+}
+
+.btn--newop {
+    padding: 16px 0 13px;
+    margin: 10px 8px 12px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    color: var(--color-body);
+    font-family: var(--font-stack-title);
+    border-radius: 2px;
+    border: 0;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px #b0289c;
+    box-shadow: 0px 3px #c727af;
+    background-color: #ff3be2;
+}
+
+.operation {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: solid 1px var(--color-body-lighter);
+    font-size: 1.3rem;
+}
+
+.operation--img {
+    height: 30px;
+    flex-shrink: 0;
+    margin: 8px 4px;
+}
+
+.operation--desc {
+    flex-grow: 1;
+    margin: 0 2px;
+    word-break: break-word;
+}
+
+.operation--amount {
+    flex-shrink: 0;
+}
+
+.operation--date {
+    border-bottom: solid 1px var(--color-body-lighter);
+    font-size: 1.1rem;
+}
+
+.operation--date:not(:first-child) {
+    margin-top: 18px;
+}
+
+/* add_operation.html */
+
+.dialog {
+    border: solid 3px var(--color-blue-light);
+    box-sizing: border-box;
+}
+
+.dialog--header {
+    flex-shrink: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: var(--font-stack-title);
+    padding: 16px 0;
+    font-size: 1.1rem;
+}
+
+.dialog--body {
+    flex-grow: 1;
+    box-shadow: inset 0px 10px 15px -10px #0d111d;
+    overflow-y: auto;
+    padding: 12px 10px;
+}
+
+.dialog--title {
+    margin-bottom: 2px;
+}
+
+.dialog--title:not(:first-child) {
+    margin-top: 16px;
+}
+
+.dialog--control {
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    background: var(--color-blue-light);
+    color: var(--color-body);
+    padding: 8px 10px;
+    margin: 0;
+    font-family: var(--font-stack-main);
+}
+
+.dialog--select {
+    padding: 8px 8px 8px 6px;
+}
+
+.dialog--amount::placeholder {
+    color: #bbb;
+}
+
+.dialog--buttons {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 9px;
+}
+
+/* TODO: Créer une class btn avec les styles communs */
+.dialog--btn {
+    display: block;
+    flex-grow: 1;
+    padding: 16px 0 13px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    color: var(--color-body);
+    font-family: var(--font-stack-title);
+    border-radius: 2px;
+    border: 0;
+    font-size: 1.1rem;
+    margin-bottom: 3px;
+}
+
+.btn--ok {
+    text-shadow: 1px 1px #2E7D32;
+    box-shadow: 0px 3px #388E3C;
+    background-color: #4CAF50;
+}
+
+.btn--cancel {
+    margin-right: 10px;
+    text-shadow: 1px 1px #B71C1C;
+    box-shadow: 0px 3px #D32F2F;
+    background-color: #F44336;
+}

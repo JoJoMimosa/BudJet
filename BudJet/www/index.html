@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>BudJet</title>
+    </head>
+    <body>
+        <!-- START::INDEX -->
+        <div class="page-wrapper index">
+            <div class="section--numbers">
+                <span class="numbers--title">Ce mois</span>
+                <span class="numbers--big-number month-sum"></span>
+                <div class="numbers--container">
+                    <div class="numbers--col">
+                        <span class="numbers--title">Aujourd'hui</span>
+                        <span class="numbers--medium-number today-sum"></span>
+                    </div>
+                    <div class="numbers--col">
+                        <span class="numbers--title">Cette semaine</span>
+                        <span class="numbers--medium-number week-sum"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="section--operations"></div>
+            <button class="btn--newop" type="button">Ajouter</button>
+        </div>
+        <!-- END::INDEX -->
+        <!-- START::ADD_OPERATION -->
+        <form class="page-wrapper dialog">
+            <div class="dialog--header">Ajouter une depense</div>
+            <div class="dialog--body">
+                <div class="dialog--title">Catégorie</div>
+                <select class="dialog--control dialog--select"></select>
+                <div class="dialog--title">Montant</div>
+                <input class="dialog--control dialog--amount" type="number" placeholder="CHF">
+                <div class="dialog--title">Description</div>
+                <input class="dialog--control dialog--desc" type="text">
+            </div>
+            <div class="dialog--buttons">
+                <button class="dialog--btn btn--cancel" type="button">Annuler</button>
+                <button class="dialog--btn btn--ok" type="button">Valider</button>
+            </div>
+        </form>
+        <!-- END::ADD_OPERATION -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script src="scripts/taffy-min.js" charset="utf-8"></script>
+        <script src="scripts/anime.min.js" charset="utf-8"></script>
+        <script src="scripts/index.js" charset="utf-8"></script>
+    </body>
+</html>
